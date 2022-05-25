@@ -1,0 +1,11 @@
+144 flight(s) found in the database: 
+	1. 105 flight(s) (73%) departed without delay.
+	2. 104 flight(s) (72%) arrived without delay.
+	3. 95 flight(s) (66%) were not delayed for departure and arrival.
+	4. 39 flight(s) (27%) were delayed for departure: average delay 21.82 minutes, maximum delay 116.00 minutes.
+	5. 40 flight(s) (28%) were delayed for arrival:
+		Average delay 18.08 minutes, maximum delay 109.00 minutes.
+	6. 30 flight(s) (21%) had delayed departures and arrivals: 
+		Average departure delay 27.63 minutes, average arrival delay 22.73 minutes.
+		Maximum departure delay 116.00 minutes, maximum arrival delay 109.00 minutes.
+	7. 2 flight(s) (1%) cancelled

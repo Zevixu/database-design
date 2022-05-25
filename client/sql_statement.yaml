@@ -1,0 +1,94 @@
+# OntimeReporting table
+#-----------------------------------------------------------------
+# OntimeReporting table query operation SQL statement
+
+# how many flights are in the database
+nc_query10_0: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s;"
+# How many flights departed without delays in 2019?
+nc_query10_1: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and DEP_DELAY_NEW = 0;"
+# How many flights arrived without delay in 2019?
+nc_query10_2: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and ARR_DELAY_NEW = 0;"
+# how many flights both departed and arrived without delay in 2019?
+nc_query10_3: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and ARR_DELAY_NEW = 0 and DEP_DELAY_NEW = 0;"
+# How many flights are delayed for departure and avg delay time and max delay time?
+nc_query10_4: "SELECT count(*), avg(DEP_DELAY_NEW), max(DEP_DELAY_NEW) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and DEP_DELAY_NEW != 0;"
+# how many flights are delayed for arrival and avg delay time and max delay time
+nc_query10_5: "SELECT count(*), avg(ARR_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and ARR_DELAY_NEW != 0;"
+# how many flights are delayed for both arrival and departure and avg delay time and max delay time
+nc_query10_6: "SELECT count(*), avg(DEP_DELAY_NEW), avg(ARR_DELAY_NEW),max(DEP_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s  and ARR_DELAY_NEW != 0 and DEP_DELAY_NEW != 0;"
+
+nc_query11_0: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s;"
+nc_query11_1: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s and DEP_DELAY_NEW = 0;"
+nc_query11_2: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s and ARR_DELAY_NEW = 0;"
+nc_query11_3: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s and ARR_DELAY_NEW = 0 and DEP_DELAY_NEW = 0;"
+nc_query11_4: "SELECT count(*), avg(DEP_DELAY_NEW), max(DEP_DELAY_NEW) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s and DEP_DELAY_NEW != 0;"
+nc_query11_5: "SELECT count(*), avg(ARR_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s and ARR_DELAY_NEW != 0;"
+nc_query11_6: "SELECT count(*), avg(DEP_DELAY_NEW), avg(ARR_DELAY_NEW),max(DEP_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s and ARR_DELAY_NEW != 0 and DEP_DELAY_NEW != 0;"
+
+nc_query12_0: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s;"
+nc_query12_1: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s and DEP_DELAY_NEW = 0;"
+nc_query12_2: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s and ARR_DELAY_NEW = 0;"
+nc_query12_3: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s and ARR_DELAY_NEW = 0 and DEP_DELAY_NEW = 0;"
+nc_query12_4: "SELECT count(*), avg(DEP_DELAY_NEW), max(DEP_DELAY_NEW) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s and DEP_DELAY_NEW != 0;"
+nc_query12_5: "SELECT count(*), avg(ARR_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s and ARR_DELAY_NEW != 0;"
+nc_query12_6: "SELECT count(*), avg(DEP_DELAY_NEW), avg(ARR_DELAY_NEW),max(DEP_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s and ARR_DELAY_NEW != 0 and DEP_DELAY_NEW != 0;"
+
+nc_query13_0: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and DAY_OF_WEEK = %s;"
+nc_query13_1: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and DAY_OF_WEEK = %s and DEP_DELAY_NEW = 0;"
+nc_query13_2: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and DAY_OF_WEEK = %s and ARR_DELAY_NEW = 0;"
+nc_query13_3: "SELECT count(*) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and DAY_OF_WEEK = %s and ARR_DELAY_NEW = 0 and DEP_DELAY_NEW = 0;"
+nc_query13_4: "SELECT count(*), avg(DEP_DELAY_NEW), max(DEP_DELAY_NEW) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and DAY_OF_WEEK = %s and DEP_DELAY_NEW != 0;"
+nc_query13_5: "SELECT count(*), avg(ARR_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and DAY_OF_WEEK = %s and ARR_DELAY_NEW != 0;"
+nc_query13_6: "SELECT count(*), avg(DEP_DELAY_NEW), avg(ARR_DELAY_NEW),max(DEP_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where ORIGIN_CITY_NAME REGEXP '%s' and DEST_CITY_NAME REGEXP '%s' and CANCELLED = %s and DAY_OF_WEEK = %s and ARR_DELAY_NEW != 0 and DEP_DELAY_NEW != 0;"
+
+
+nc_query40_0: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s;"
+nc_query40_1: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and DEP_DELAY_NEW = 0;"
+nc_query40_2: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and ARR_DELAY_NEW = 0;"
+nc_query40_3: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and ARR_DELAY_NEW = 0 and DEP_DELAY_NEW = 0;"
+nc_query40_4: "SELECT count(*), avg(DEP_DELAY_NEW), max(DEP_DELAY_NEW) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and DEP_DELAY_NEW != 0;"
+nc_query40_5: "SELECT count(*), avg(ARR_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and ARR_DELAY_NEW != 0;"
+nc_query40_6: "SELECT count(*), avg(DEP_DELAY_NEW), avg(ARR_DELAY_NEW),max(DEP_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and ARR_DELAY_NEW != 0 and DEP_DELAY_NEW != 0;"
+
+nc_query41_0: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s;"
+nc_query41_1: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s and DEP_DELAY_NEW = 0;"
+nc_query41_2: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s and ARR_DELAY_NEW = 0;"
+nc_query41_3: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s and ARR_DELAY_NEW = 0 and DEP_DELAY_NEW = 0;"
+nc_query41_4: "SELECT count(*), avg(DEP_DELAY_NEW), max(DEP_DELAY_NEW) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s and DEP_DELAY_NEW != 0;"
+nc_query41_5: "SELECT count(*), avg(ARR_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s and ARR_DELAY_NEW != 0;"
+nc_query41_6: "SELECT count(*), avg(DEP_DELAY_NEW), avg(ARR_DELAY_NEW),max(DEP_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s and ARR_DELAY_NEW != 0 and DEP_DELAY_NEW != 0;"
+
+
+nc_query42_0: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s;"
+nc_query42_1: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s and DEP_DELAY_NEW = 0;"
+nc_query42_2: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s and ARR_DELAY_NEW = 0;"
+nc_query42_3: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s and ARR_DELAY_NEW = 0 and DEP_DELAY_NEW = 0;"
+nc_query42_4: "SELECT count(*), avg(DEP_DELAY_NEW), max(DEP_DELAY_NEW) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s and DEP_DELAY_NEW != 0;"
+nc_query42_5: "SELECT count(*), avg(ARR_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s and ARR_DELAY_NEW != 0;"
+nc_query42_6: "SELECT count(*),avg(DEP_DELAY_NEW), avg(ARR_DELAY_NEW),max(DEP_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and month = %s and DAY_OF_MONTH = %s and ARR_DELAY_NEW != 0 and DEP_DELAY_NEW != 0;"
+
+nc_query43_0: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and DAY_OF_WEEK = %s;"
+nc_query43_1: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and DAY_OF_WEEK = %s and DEP_DELAY_NEW = 0;"
+nc_query43_2: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and DAY_OF_WEEK = %s and ARR_DELAY_NEW = 0;"
+nc_query43_3: "SELECT count(*) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and DAY_OF_WEEK = %s and ARR_DELAY_NEW = 0 and DEP_DELAY_NEW = 0;"
+nc_query43_4: "SELECT count(*), avg(DEP_DELAY_NEW), max(DEP_DELAY_NEW) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and DAY_OF_WEEK = %s and DEP_DELAY_NEW != 0;"
+nc_query43_5: "SELECT count(*), avg(ARR_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where OP_CARRIER_FL_NUM = %s and CANCELLED = %s and DAY_OF_WEEK = %s and ARR_DELAY_NEW != 0;"
+nc_query43_6: "SELECT count(*), avg(DEP_DELAY_NEW), avg(ARR_DELAY_NEW),max(DEP_DELAY_NEW), max(ARR_DELAY_NEW) from OntimeReporting where OP_CARRIER_FL_NUM = %s  and CANCELLED = %s and DAY_OF_WEEK = %s and ARR_DELAY_NEW != 0 and DEP_DELAY_NEW != 0;"
+
+# OntimeReporting table modify operation SQL statement
+m_statement_pre: "select * from OntimeReporting where ORIGIN_CITY_NAME REGEXP %s and DEST_CITY_NAME REGEXP %s and MONTH = %s and DAY_OF_MONTH = %s and OP_CARRIER_FL_NUM= %s;"
+m_statement_c: "update OntimeReporting set DEP_TIME = NULL,DEP_DELAY_NEW = NULL,DEP_DEL15 = NULL,ARR_TIME = NULL, ARR_DELAY_NEW = NULL,ARR_TIME = NULL,CANCELLED = 1.00,CANCELLATION_CODE=%s,CARRIER_DELAY = NULL,WEATHER_DELAY = NULL,NAS_DELAY = NULL,SECURITY_DELAY = NULL,LATE_AIRCRAFT_DELAY = NULL where MONTH = %s and DAY_OF_MONTH =%s and OP_CARRIER_FL_NUM=%s and ORIGIN_CITY_NAME REGEXP %s and DEST_CITY_NAME REGEXP %s ;"
+m_statement_nc: "update OntimeReporting set DEP_TIME=%s, DEP_DELAY_NEW=%s, DEP_DEL15=%s, ARR_TIME=%s, ARR_DELAY_NEW=%s,CARRIER_DELAY = %s,WEATHER_DELAY = %s,NAS_DELAY = %s,SECURITY_DELAY = %s,LATE_AIRCRAFT_DELAY = %s where MONTH = %s and DAY_OF_MONTH =%s and OP_CARRIER_FL_NUM=%s and ORIGIN_CITY_NAME REGEXP %s and DEST_CITY_NAME REGEXP %s ;"
+
+# OntimeReporting table delete operation SQL statement
+do_delete: "delete from OntimeReporting where MONTH = %s and DAY_OF_MONTH =%s and OP_CARRIER_FL_NUM=%s and ORIGIN_CITY_NAME REGEXP %s and DEST_CITY_NAME REGEXP %s;"
+
+# OntimeReporting table insert operation SQL statement
+do_insert: "insert into OntimeReporting values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+#-----------------------------------------------------------------
+
+# employ table query operation SQL statement
+employ_query: "select * from Employees where AIRLINE_ID =%s;"
+
+# AIR_CARRIER_SUMMARY_AIRPORT_ACTIVITY table query operation SQL statement
+aa_query: "select * from CARRIER_SUMMARY_AIRPORT_ACTIVITY where OP_UNIQUE_CARRIER=%s and ORIGIN_AIRPORT_ID=%s"
